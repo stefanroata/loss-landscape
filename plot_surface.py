@@ -24,6 +24,8 @@ import model_loader
 import scheduler
 import mpi4pytorch as mpi
 
+
+
 def name_surface_file(args, dir_file):
     # skip if surf_file is specified in args
     if args.surf_file:
@@ -59,11 +61,11 @@ def setup_surface_file(args, surf_file, dir_file):
     f['dir_file'] = dir_file
 
     # Create the coordinates(resolutions) at which the function is evaluated
-    xcoordinates = np.linspace(args.xmin, args.xmax, num=args.xnum)
+    xcoordinates = np.linspace(args.xmin, args.xmax, num=int(args.xnum))
     f['xcoordinates'] = xcoordinates
 
     if args.y:
-        ycoordinates = np.linspace(args.ymin, args.ymax, num=args.ynum)
+        ycoordinates = np.linspace(args.ymin, args.ymax, num=int(args.ynum))
         f['ycoordinates'] = ycoordinates
     f.close()
 
